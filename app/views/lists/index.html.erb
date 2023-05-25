@@ -1,0 +1,8 @@
+<h1>movies</h1>
+<% @lists.each do |list| %>
+  <li class="list-group-item">
+    <%= link_to list.name, list_path(list) %>
+  </li>
+<% end %>
+
+  <p><%= link_to "Add new list", new_list_path%></p>
