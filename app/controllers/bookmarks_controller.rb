@@ -10,8 +10,12 @@ class BookmarksController < ApplicationController
     @bookmark = Bookmark.new(bookmark_params)
     @bookmark.list = @list
     if @bookmark.save
+      # with valid params : creates a new bookmark
+      # assigns a newly created bookmark as @bookmark and redirects to the created list
       redirect_to list_path(@list)
     else
+      # with invalid params : assigns a newly created but unsaved bookmark as @bookmark
+      # re-renders the 'new' template or 'lists/show'
       render :new
     end
   end
